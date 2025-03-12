@@ -1,0 +1,24 @@
+tst_game: island.o input.o events.o raster.o render.o model.o render.o bitmaps.o
+	cc68x -g island.o input.o events.o render.o model.o bitmaps.o raster.o  -o anim
+
+
+island.o: island.c island.h
+	 cc68x -g -c island.c
+
+model.o: model.c model.h
+	cc68x -g -c model.c
+
+input.o: input.c input.h
+	cc68x -g -c input.c
+
+events.o: events.c events.h model.h
+	cc68x -g -c events.c
+bitmaps.o: bitmaps.c bitmaps.h
+	cc68x -g -c bitmaps.c
+render.o: render.c render.h
+	 cc68x -g -c render.c
+	 
+
+raster.o: raster.c raster.h
+	cc68x -g -c raster.c
+
