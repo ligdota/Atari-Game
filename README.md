@@ -71,5 +71,3 @@ Separating rendering, input, model, and event logic
 Handling collisions manually
 Timing gameplay updates around system ticks
 Building a project incrementally across multiple development stages
-Notes
-Some compiled object files and generated executables are included because this repository reflects the original school project folder. The source files are the main reference for the implementation.
