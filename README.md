@@ -1,73 +1,57 @@
-IslandPlat is a small 2D platformer built in C for my schools low level programming class. The game targets the Atari ST environment and was developed in stages, starting with low-level raster drawing and building up to a playable platforming game with movement, collision, enemies, a timer, and collectible win condition.
+# Atari-Game
 
-Project Overview
-The final version of the game is in stages5-7. Earlier folders show the project as it was built throughout the course:
+`Atari-Game` contains `IslandPlat`, a 2D platformer written in C for an Atari ST programming course. The project focuses on low-level graphics, frame timing, collision handling, and modular game logic rather than modern engine tooling.
 
-stage1 - original game specification document
-stage2 - raster drawing functions and raster tests
-stage3 - model and event logic tests
-stage4 - rendering system and render tests
-stages5-7 - final integrated game
-Gameplay
-The player controls a stickman moving across floating platforms. The goal is to reach the coin before the timer runs out while avoiding spiders and staying on screen.
+## Overview
 
-Controls:
+The final playable build lives in `IslandPlat/stages5-7`. It targets the Atari ST environment and uses Atari-specific screen, timing, and input routines, so it should be treated as a retro systems project rather than a portable desktop game.
 
-Key	Action
-W	Jump
-A	Move left
-D	Move right
-Q	Quit
-The game ends when the player collects the coin, runs out of time, touches an enemy, or leaves the screen.
+## Gameplay
 
-Features
-640x400 Atari ST-style graphics
-Custom bitmap rendering routines
-Double buffering for smoother screen updates
-Keyboard input handling
-Platform collision detection
-Gravity and jump state logic
-Moving spider enemies
-Timer and heart UI rendering
-Coin pickup win condition
-Technologies
-C
-Atari ST system calls through osbind.h
-cc68x compiler toolchain
-Makefile-based builds
-Building
-The final game is built from the stages5-7 directory:
+- Move left with `A`
+- Move right with `D`
+- Jump with `W`
+- Quit with `Q`
 
-cd stages5-7
+The goal is to reach the coin before the timer expires while avoiding spiders and staying alive.
+
+## Features
+
+- 640x400 Atari ST style rendering
+- Custom bitmap drawing routines
+- Double-buffered screen updates
+- Platforming movement with jump and gravity handling
+- Enemy patrol logic for spiders
+- Timer, UI, and collectible win condition
+- Separation between input, model, event, and render code
+
+## Build
+
+This project expects an Atari ST compatible C toolchain with `cc68x` available.
+
+```bash
+cd IslandPlat/stages5-7
 make
-The makefile builds the game executable as anim.
+```
 
-This project depends on an Atari ST-compatible C toolchain with cc68x available. It is not intended to compile directly with a modern desktop C compiler without porting the Atari-specific graphics, input, screen, and supervisor-mode calls.
+The build produces an executable named `anim`.
 
-Running
-Run the generated anim executable in an Atari ST-compatible environment or emulator configured for the same toolchain/runtime used by the class.
+## Run
 
-./anim
-Code Structure
-The final game is organized into small C modules:
+Run the generated executable in an Atari ST compatible environment or emulator configured for the same toolchain/runtime used during development.
 
-File	Purpose
-island.c	Main game loop, model setup, timing, double buffering
-model.c / model.h	Game object data structures and movement updates
-events.c / events.h	Collision checks, jump requests, timer logic, end-game checks
-render.c / render.h	Draws platforms, player, enemies, timer, heart, and coin
-RASTER.C / RASTER.H	Low-level bitmap plotting and screen clearing
-bitmaps.c / bitmaps.h	Bitmap data for game sprites and UI
-input.c / input.h	Keyboard polling and control helpers
-psg.c / psg.h	Atari ST programmable sound generator helpers
-music.c / music.h	Basic music playback logic
-TYPES.H	Shared constants, type aliases, and game configuration
-What I Learned
-This project was created as part of a class and focuses on lower-level game programming concepts, including:
+## Repository Layout
 
-Working with frame buffers and bitmap data
-Structuring game state with C structs
-Separating rendering, input, model, and event logic
-Handling collisions manually
-Timing gameplay updates around system ticks
-Building a project incrementally across multiple development stages
+- `IslandPlat/stages5-7`: final integrated version of the game
+- Earlier stage folders inside `IslandPlat`: milestone work from earlier course checkpoints
+- `island.c`: main game loop and double-buffer setup
+- `events.c`: collision checks, timer logic, and win/loss conditions
+- `model.c`: movement updates and shared game state behavior
+- `render.c`: sprite and UI rendering
+- `RASTER.C`: low-level raster operations
+- `bitmaps.c`: sprite and UI bitmap data
+
+## Notes
+
+Because the code depends on Atari-specific headers and system calls, it is not expected to compile unchanged with a modern desktop C compiler.
+You would need Steem running TOS 
