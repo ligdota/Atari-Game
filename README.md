@@ -1,10 +1,10 @@
 # Atari-Game
 
-`Atari-Game` contains `IslandPlat`, a 2D platformer written in C for an Atari ST programming course. The project focuses on low-level graphics, frame timing, collision handling, and modular game logic rather than modern engine tooling.
+`Atari-Game` contains `IslandPlat`, a 2D platformer written in C. The project focuses on low-level bitmap graphics, collision handling, input handling, event loop handling to showcase C++ development skills rather than using a modern game engine.
 
 ## Overview
 
-The final playable build lives in `IslandPlat/stages5-7`. It targets the Atari ST environment and uses Atari-specific screen, timing, and input routines, so it should be treated as a retro systems project rather than a portable desktop game.
+The final playable build lives in `IslandPlat/stages5-7`. It targets the Atari ST environment and uses Atari-specific screen, timing, and input routines. I.e this is not a portable desktop game.
 
 ## Gameplay
 
